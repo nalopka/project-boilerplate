@@ -16,18 +16,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts(x?)$/,
+                test: /\.(ts)x?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
-                    }
-                ]
-            },
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
+                loader: "babel-loader"
             },
             {
                 test: /\.css$/,

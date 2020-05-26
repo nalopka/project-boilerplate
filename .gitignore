@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 
+
 # testing
 /coverage
 
@@ -15,6 +16,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+package-lock.json
+
 /.idea
 
 npm-debug.log*
