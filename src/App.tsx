@@ -1,13 +1,13 @@
 import * as React from "react";
 
-import style from './App.css';
+import s from './App.css';
 
 interface Props {
 }
 
 const Core: React.FC<Props> = (props) => {
     return (
-        <div className={style.bold}>
+        <div className={s.app}>
             Hello!
         </div>
     )

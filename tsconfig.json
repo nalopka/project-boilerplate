@@ -7,9 +7,9 @@
         "target": "es6",
         "jsx": "react",
         "strict": true,
-        "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop" : true
+        "esModuleInterop" : true,
+        "noEmit": true
     },
-    "include": ["src/**/*"]
+    "include": ["src"]
 }
