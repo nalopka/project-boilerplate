@@ -1,11 +1,10 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: "development",
-    devtool: 'inline-source-map',
-
     resolve: {
         extensions: [".ts", ".tsx", '.js'],
         alias: {
@@ -47,11 +46,21 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/img'),
+                    to: 'img',
+                },
+            ]
+        }),
+        new Dotenv(),
     ],
 
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: './'
     },
     optimization: {
         splitChunks: {
@@ -65,9 +74,9 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         progress: true,
-        port: 3000,
+        port: 3010,
+        historyApiFallback: true,
 
         publicPath: '/',
     }
-
 };
